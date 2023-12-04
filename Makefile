@@ -2,22 +2,22 @@ NAME = libftprintf.a
 
 CC = cc
 
-FLAGS = -Wall -Werror - Wextra
+FLAGS = -Wall -Werror -Wextra
 
 HEADER = ft_printf.h
 
-SRC = /SRC/ft_printf.c
-	/SRC/ft_printf_utils.c
-	/SRC/ft_printhex.c
+SRC = ./src/ft_printf.c \
+	./src/ft_printf_utils.c \
+	./src/ft_printhex.c
 
-OBJ = /OBJ/$(SRC:%.c=%.o)
+OBJ = $(SRC:%.c=%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 
 %.o: %.c $(HEADER)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< $@
 	ar -rcs $(NAME) $@
 
 clean:
