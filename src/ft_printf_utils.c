@@ -6,11 +6,11 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:01:54 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/04 16:42:14 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:03:38 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 /*
  * @brief Prints c to stdout.
