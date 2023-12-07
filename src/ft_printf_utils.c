@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:01:54 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/05 14:03:38 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:26:21 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,25 @@
  * @param char c
  * @param fd file descriptor
  */
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
-	ssize_t	n;
+	int	n;
 
 	n = 0;
 	while (n == 0)
 		n = write(fd, &c, 1);
+	return (n);
 }
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
-	while (*s)
+	int	n;
+
+	n = 0;
+	while (s[n])
 	{
-		ft_putchar_fd(*s, fd);
-		s++;
+		ft_putchar_fd(s[n], fd);
+		n++;
 	}
+	return (n);
 }

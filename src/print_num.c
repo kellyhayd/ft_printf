@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:07:09 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/05 17:09:54 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:38:18 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,41 +21,32 @@ int	print_dec_int(int num)
 	n = 0;
 	if (lnb < 0)
 	{
-		ft_putchar_fd('-', 1);
+		n += ft_putchar_fd('-', 1);
 		lnb = -lnb;
-		n += 1;
 	}
 	if (lnb < 10)
-	{
-		ft_putchar_fd(lnb + '0', 1);
-		n += 1;
-	}
+		n += ft_putchar_fd(lnb + '0', 1);
 	else if (lnb >= 10)
 	{
-		lnb = lnb / 10;
-		ft_putchar_fd((lnb % 10) + '0', 1);
+		n += print_dec_int(lnb / 10);
+		n += print_dec_int(lnb % 10);
 	}
 	return (n);
 }
 
 int	print_undec(unsigned int num)
 {
-	int	n;
+	int				n;
+	unsigned long	lnum;
 
+	lnum = num;
 	n = 0;
-	if (num < 10)
+	if (lnum < 10)
+		n += ft_putchar_fd(lnum + '0', 1);
+	else if (lnum >= 10)
 	{
-		ft_putchar_fd(num + '0', 1);
-		n += 1;
-	}
-	else if (num >= 10)
-	{
-		while (num >= 10)
-		{
-			ft_putchar_fd((num % 10) + '0', 1);
-			num %= 10;
-			n += 1;
-		}
+		n += print_undec(lnum / 10);
+		n += print_undec(lnum % 10);
 	}
 	return (n);
 }
