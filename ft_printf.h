@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:02:00 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/05 17:19:02 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:27:20 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		print_numhex_low(long int num);
 int		print_ptrhex(long int num);
 int		print_dec_int(int num);
 int		print_undec(unsigned int num);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
+int	ft_putchar_fd(char c, int fd);
+int	ft_putstr_fd(char *s, int fd);
 
 #endif
