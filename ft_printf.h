@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:02:00 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/07 14:27:20 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:51:39 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int		id_type(char c, va_list ap);
 int		print_char(char c);
 int		print_str(char *str);
 int		print_digit(char *base, int num);
-int		print_numhex_up(long int num);
-int		print_numhex_low(long int num);
+int		print_hex(long int num, char c);
+// int		print_numhex_low(long int num);
 int		print_ptrhex(long int num);
 int		print_dec_int(int num);
 int		print_undec(unsigned int num);

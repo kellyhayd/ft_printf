@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:01:50 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/05 17:30:06 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:50:57 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,12 @@ int	id_type(char c, va_list ap)
 		n = print_dec_int(va_arg(ap, int));
 	if (c == 'u')
 		n = print_undec(va_arg(ap, unsigned int));
-	if (c == 'X')
-		n = print_numhex_up(va_arg(ap, long int));
-	if (c == 'x')
-		n = print_numhex_low(va_arg(ap, long int));
+	if (c == 'x' || c == 'X')
+		n = print_hex(va_arg(ap, long int), c);
+	// if (c == 'x')
+	// 	n = print_numhex_low(va_arg(ap, long int));
 	if (c == '%')
-	{
-		ft_putchar_fd('%', 1);
-		n = 1;
-	}
+		n = ft_putchar_fd('%', 1);
 	return (n);
 }
 

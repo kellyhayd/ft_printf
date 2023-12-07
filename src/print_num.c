@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:07:09 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/07 14:38:18 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:31:39 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	print_dec_int(int num)
 	if (lnb < 0)
 	{
 		n += ft_putchar_fd('-', 1);
-		lnb = -lnb;
+		lnb *= -1;
 	}
 	if (lnb < 10)
 		n += ft_putchar_fd(lnb + '0', 1);
