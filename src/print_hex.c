@@ -26,12 +26,13 @@
 // 	return (n);
 // }
 
-int	print_hex(long int num, char c)
+int	print_hex(unsigned int num, char c)
 {
-	char	*hex_up;
-	char	*hex_low;
-	char	*base;
-	int		n;
+	char		*hex_up;
+	char		*hex_low;
+	char		*base;
+	int			n;
+	unsigned long long	lnum;
 
 	hex_up = "0123456789ABCDEF";
 	hex_low = "0123456789abcdef";
@@ -39,65 +40,43 @@ int	print_hex(long int num, char c)
 		base = hex_low;
 	else if (c == 'X')
 		base = hex_up;
+	lnum = (unsigned long long)num;
 	n = 0;
-	if (num < 0)
+	if (lnum < 16)
+		n += ft_putchar_fd(base[lnum], 1);
+	else if (lnum >= 16)
 	{
-		n += ft_putchar_fd('-', 1);
-		num *= -1;
-	}
-	if (num < 16)
-		n += ft_putchar_fd(base[num], 1);
-	else if (num >= 16)
-	{
-		n += print_hex(num / 16, c);
-		n += print_hex(num % 16, c);
+		n += print_hex(lnum / 16, c);
+		n += print_hex(lnum % 16, c);
 	}
 	return (n);
 }
 
-// int	print_numhex_low(long int num)
-// {
-// 	char	*base;
-// 	int		n;
-
-// 	base = "0123456789abcdef";
-// 	n = 0;
-// 	if (num < 0)
-// 	{
-// 		ft_putchar_fd('-', 1);
-// 		n += 1;
-// 		num *= -1;
-// 	}
-// 	if (num >= 16)
-// 		n += print_digit(base, num);
-// 	else
-// 	{
-// 		ft_putchar_fd(base[num % 16], 1);
-// 		n += 1;
-// 	}
-// 	return (n);
-// }
-
-int	print_ptrhex(long int ptr)
+int	print_ptrhex(unsigned int ptr)
 {
 	int					n;
-	char				*base;
+	// unsigned long long	lnum;
+	// char				*base;
 
-	base = "0123456789ABCDEF";
-	ft_putstr_fd("0x", 1);
-	n = 2;
-	if (ptr < 0)
-	{
-		ft_putchar_fd('-', 1);
-		n += 1;
-		ptr *= -1;
-	}
+	// base = "0123456789ABCDEF";
+	// lnum = ptr;
+	// if (prefix)
+	// 	n = ft_putstr_fd("0x", 1);
 	// if (ptr >= 16)
-	// 	n += print_digit(base, ptr);
-	else
+	// 	n += print_ptrhex(ptr / 16, 0);
+	// else
+	// {
+	// 	ft_putchar_fd(base[ptr % 16], 1);
+	// 	n += 1;
+	// }
+
+	if (!ptr)
 	{
-		ft_putchar_fd(base[ptr % 16], 1);
-		n += 1;
+		n = ft_putstr_fd("(nil)", 1);
+		return (n);
 	}
+	n = ft_putstr_fd("0x", 1);
+	n += print_hex(ptr, 'x');
+
 	return (n);
 }

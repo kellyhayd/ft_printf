@@ -23,15 +23,13 @@ int	id_type(char c, va_list ap)
 	if (c == 's')
 		n = print_str(va_arg(ap, char *));
 	if (c == 'p')
-		n = print_ptrhex(va_arg(ap, long));
+		n = print_ptrhex(va_arg(ap, unsigned int));
 	if (c == 'd' || c == 'i')
 		n = print_dec_int(va_arg(ap, int));
 	if (c == 'u')
 		n = print_undec(va_arg(ap, unsigned int));
 	if (c == 'x' || c == 'X')
-		n = print_hex(va_arg(ap, long int), c);
-	// if (c == 'x')
-	// 	n = print_numhex_low(va_arg(ap, long int));
+		n = print_hex(va_arg(ap, unsigned int), c);
 	if (c == '%')
 		n = ft_putchar_fd('%', 1);
 	return (n);
