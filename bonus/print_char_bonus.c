@@ -14,11 +14,7 @@
 
 int	print_char(char c)
 {
-	int		n;
-
-	n = 1;
-	ft_putchar_fd(c, 1);
-	return (n);
+	return (ft_putchar_fd(c, 1));
 }
 
 int	print_str(char *str)

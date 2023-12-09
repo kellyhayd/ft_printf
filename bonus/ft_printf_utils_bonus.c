@@ -59,3 +59,7 @@ int	ft_findchr(char c, char *tofind)
 	}
 	return (0);
 }
+int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}

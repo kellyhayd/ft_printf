@@ -32,5 +32,6 @@ int	ft_findchr(char c, char *tofind);
 int	print_plus_sign(long long int num);
 int	print_hashtag(char c, unsigned int num);
 int	id_flag_bonus(const char *str, int i, va_list ap);
+int	ft_isdigit(int c);
 
 #endif

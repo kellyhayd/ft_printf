@@ -17,16 +17,15 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-int		ft_printf(const char *str, ...);
-int		id_type(char c, va_list ap);
-int		print_char(char c);
-int		print_str(char *str);
-int		print_digit(char *base, int num);
-int		print_hex(long int num, char c);
-// int		print_numhex_low(long int num);
-int		print_ptrhex(long int num);
-int		print_dec_int(int num);
-int		print_undec(unsigned int num);
+int	ft_printf(const char *str, ...);
+int	id_type(char c, va_list ap);
+int	print_char(char c);
+int	print_str(char *str);
+int	print_digit(char *base, int num);
+int	print_hex(unsigned int num, char c);
+int	print_ptrhex(unsigned long long ptr, int prefix);
+int	print_dec_int(int num);
+int	print_undec(unsigned int num);
 int	ft_putchar_fd(char c, int fd);
 int	ft_putstr_fd(char *s, int fd);
 
