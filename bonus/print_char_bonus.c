@@ -21,7 +21,7 @@ int	print_char(char c, t_config *config)
 		n += ft_putnchar(' ', (config->width - 1), PRINT_ONLY);
 	n += ft_putnchar(c, 1, PRINT_ONLY);
 	if (config->width > 1 && config->flags.minus)
-			n += ft_putnchar(' ', (config->width - 1), PRINT_ONLY);
+		n += ft_putnchar(' ', (config->width - 1), PRINT_ONLY);
 	return (n);
 }
 

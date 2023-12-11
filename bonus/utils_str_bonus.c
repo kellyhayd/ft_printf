@@ -25,15 +25,13 @@
  */
 int	ft_putnchar(char c, int rep, int mode)
 {
-	int	n;
 	int	count;
 
 	if (mode == COUNT_ONLY)
 		return (rep);
 	count = rep;
-	n = 0;
-	while (n == 0 && count-- > 0)
-		n = write(1, &c, 1);
+	while (count-- > 0)
+		write(1, &c, 1);
 	return (rep);
 }
 
