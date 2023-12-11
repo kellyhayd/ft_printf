@@ -14,19 +14,13 @@
 
 int	print_hex(unsigned long long lnum, char c)
 {
-	char		*hex_up;
-	char		*hex_low;
 	char		*base;
 	int			n;
-	// unsigned long long	lnum;
 
-	hex_up = "0123456789ABCDEF";
-	hex_low = "0123456789abcdef";
 	if (c == 'x')
-		base = hex_low;
+		base = "0123456789abcdef";
 	else if (c == 'X')
-		base = hex_up;
-	// lnum = (unsigned long long)num;
+		base = "0123456789ABCDEF";
 	n = 0;
 	if (lnum < 16)
 		n += ft_putchar_fd(base[lnum], 1);
@@ -41,27 +35,13 @@ int	print_hex(unsigned long long lnum, char c)
 int	print_ptrhex(unsigned long long ptr)
 {
 	int					n;
-	// // unsigned long long	lnum;
-	// char				*base;
 
-	// base = "0123456789ABCDEF";
 	if (!ptr)
 	{
 		n = ft_putstr_fd("(nil)", 1);
 		return (n);
 	}
-	// // lnum = (unsigned long long )ptr;
-	// if (prefix)
-	// 	n = ft_putstr_fd("0x", 1);
-	// if (ptr >= 16)
-	// 	n += print_ptrhex(ptr / 16, 0);
-	// else
-	// {
-	// 	ft_putchar_fd(base[ptr % 16], 1);
-	// 	n += 1;
-	// }
 	n = ft_putstr_fd("0x", 1);
 	n += print_hex(ptr, 'x');
-
 	return (n);
 }
