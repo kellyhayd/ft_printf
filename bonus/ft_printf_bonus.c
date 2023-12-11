@@ -13,52 +13,86 @@
 #include "ft_printf_bonus.h"
 #include <stdarg.h>
 
-int	id_type_bonus(const char *str, int i, va_list ap)
+int	id_type_bonus(const char **str, va_list ap, t_config *config)
 {
 	int	n;
 
 	n = 0;
-	if (ft_findchr(str[i], "# +-0."))
-		n = id_flag_bonus(str, i, ap);
-	else if (str[i] == 'c')
-		n = print_char(va_arg(ap, int));
-	else if (str[i] == 's')
-		n = print_str(va_arg(ap, char *));
-	else if (str[i] == 'p')
-		n = print_ptrhex(va_arg(ap, unsigned long long), 1);
-	else if (str[i] == 'd' || str[i] == 'i')
-		n = print_dec_int(va_arg(ap, int));
-	else if (str[i] == 'u')
-		n = print_undec(va_arg(ap, unsigned int));
-	else if (str[i] == 'x' || str[i] == 'X')
-		n = print_hex(va_arg(ap, unsigned int), str[i]);
-	else if (str[i] == '%')
-		n = ft_putchar_fd('%', 1);
+	if (**str == 'c')
+		n = print_char(va_arg(ap, int), config);
+	else if (**str == 's')
+		n = print_str(va_arg(ap, char *), config);
+	else if (**str == 'p')
+		n = define_ptrhex(va_arg(ap, void *), config);
+	else if (**str == 'd' || **str == 'i')
+		n = define_num(va_arg(ap, int), config);
+	else if (**str == 'u')
+		n = define_undec(va_arg(ap, unsigned int));
+	else if (**str == 'x' || **str == 'X')
+		n = define_hex(va_arg(ap, unsigned long int), **str, config);
+	else if (**str == '%')
+		n = ft_putnchar('%', 1, PRINT_ONLY);
 	return (n);
+}
+
+void	find_flags(const char **str, t_config *config)
+{
+	config->flags.hashtag = 0;
+	config->flags.space = 0;
+	config->flags.plus = 0;
+	config->flags.zero = 0;
+	config->flags.minus = 0;
+	while (ft_findchr(**str, "# +0-"))
+	{
+		if (**str == '#')
+			config->flags.hashtag = 1;
+		if (**str == ' ')
+			config->flags.space = 1;
+		if (**str == '+')
+			config->flags.plus = 1;
+		if (**str == '0')
+			config->flags.zero = 1;
+		if (**str == '-')
+			config->flags.minus = 1;
+		(*str)++;
+	}
+	if (config->flags.minus)
+		config->flags.zero = 0;
+	if (config->flags.plus)
+		config->flags.space = 0;
+}
+
+int	define_config(const char **str, va_list ap, t_config *config)
+{
+	find_flags(str, config);
+	config->width = parse_number(str);
+	if (**str == '.')
+		config->precision = parse_number(str);
+	else
+		config->precision = - 1;
+	return (id_type_bonus(str, ap, config));
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int		n;
-	int		i;
-	va_list	args;
+	int			n;
+	va_list		args;
+	t_config	config;
 
 	va_start(args, str);
 	n = 0;
-	i = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] != '%')
+		if (*str != '%')
 		{
-			ft_putchar_fd(str[i], 1);
+			ft_putnchar(*str, 1, PRINT_ONLY);
 			n += 1;
 		}
-		if (str[i] == '%')
+		if (*str == '%')
 		{
-			n += id_type_bonus(str, i + 1, args);
-			i += 2;
+			n += define_config(&str, args, &config);
 		}
-		i++;
+		str++;
 	}
 	va_end(args);
 	return (n);
