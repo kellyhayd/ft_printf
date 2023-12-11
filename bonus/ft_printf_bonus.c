@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:01:50 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/07 14:50:57 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/11 17:58:30 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ int	id_type_bonus(const char **str, va_list ap, t_config *config)
 
 	n = 0;
 	if (**str == 'c')
-		n = print_char(va_arg(ap, int), config);
+		n = print_char_bonus(va_arg(ap, int), config);
 	else if (**str == 's')
-		n = print_str(va_arg(ap, char *), config);
+		n = print_str_bonus(va_arg(ap, char *), config);
 	else if (**str == 'p')
-		n = define_ptrhex(va_arg(ap, void *), config);
+		n = define_ptrhex_bonus(va_arg(ap, void *), config);
 	else if (**str == 'd' || **str == 'i')
-		n = define_num(va_arg(ap, int), config);
+		n = define_num_bonus(va_arg(ap, int), config);
 	else if (**str == 'u')
-		n = define_undec(va_arg(ap, unsigned int));
+		n = define_undec_bonus(va_arg(ap, unsigned int));
 	else if (**str == 'x' || **str == 'X')
-		n = define_hex(va_arg(ap, unsigned int), **str, config);
+		n = define_hex_bonus(va_arg(ap, unsigned int), **str, config);
 	else if (**str == '%')
 		n = ft_putnchar('%', 1, PRINT_ONLY);
 	else
@@ -38,7 +38,7 @@ int	id_type_bonus(const char **str, va_list ap, t_config *config)
 	return (n);
 }
 
-void	find_flags(const char **str, t_config *config)
+void	define_flags_bonus(const char **str, t_config *config)
 {
 	config->flags.hashtag = 0;
 	config->flags.space = 0;
@@ -65,9 +65,9 @@ void	find_flags(const char **str, t_config *config)
 		config->flags.space = 0;
 }
 
-int	define_config(const char **str, va_list ap, t_config *config)
+int	define_config_bonus(const char **str, va_list ap, t_config *config)
 {
-	find_flags(str, config);
+	define_flags_bonus(str, config);
 	config->width = parse_number(str);
 	if (**str == '.')
 		config->precision = parse_number(str);
@@ -95,7 +95,7 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			n += define_config(&str, args, &config);
+			n += define_config_bonus(&str, args, &config);
 		}
 	}
 	va_end(args);
