@@ -23,7 +23,7 @@ int	id_type(char c, va_list ap)
 	if (c == 's')
 		n = print_str(va_arg(ap, char *));
 	if (c == 'p')
-		n = print_ptrhex(va_arg(ap, unsigned int));
+		n = print_ptrhex(va_arg(ap, unsigned long long));
 	if (c == 'd' || c == 'i')
 		n = print_dec_int(va_arg(ap, int));
 	if (c == 'u')

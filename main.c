@@ -11,17 +11,20 @@
 /* ************************************************************************** */
 
 
-// #include "ft_printf.h"
-#include "./bonus/ft_printf_bonus.h"
+#include "ft_printf.h"
+// 
 #include <stdio.h>
 
 int main(void)
 {
-	// //Test char
-	// char	c = 'k';
-	// int		n1;
-	// int		n2;
+	//Test char
+	char	c = 'k';
+	int		n1;
+	int		n2;
 
+
+	n1 = ft_printf("%c", '0');
+	printf("\n%d\n", n1);
 	// ft_printf("Testando char\n");
 	// n1 = ft_printf("ft_printf imprime char: %c\n", c);
 	// n2 = printf("___Printf imprime char: %c\n", c);
@@ -104,12 +107,12 @@ int main(void)
 	// n36 = printf("___Printf imprime LLONG_MAX - hex: %p\n", LLONG_MAX);
 	// printf("ft = %d\nPrintf = %d\n\n", n35, n36);
 
-	ft_printf("----------------------------------------------------------\n");
-	ft_printf("-----------------------*** BONUS ***----------------------\n");
-	ft_printf("----------------------------------------------------------\n\n");
+	// ft_printf("----------------------------------------------------------\n");
+	// ft_printf("-----------------------*** BONUS ***----------------------\n");
+	// ft_printf("----------------------------------------------------------\n\n");
 	
 	//Test int
-	int	n37, n38, n39, n40, n41, n42, n43, n44, n45, n46, n47, n48, n49, n50, n51, n52;
+	// int	n37, n38, n39, n40, n41, n42, n43, n44, n45, n46, n47, n48, n49, n50, n51, n52;
 
 	// ft_printf("Test '#'\n");
 	// n37 = ft_printf("ft_printf imprime int: %#x\n", -2147483648);
@@ -124,10 +127,10 @@ int main(void)
 	// n52 = printf("___Printf imprime int:% 1s\n", "kelly");
 	// printf("ft = %d\nprintf = %d\n\n", n51, n52);
 
-	ft_printf("Test '-'\n");
-	n41 = ft_printf("ft_printf imprime:%-1c\n", '0');
-	n42 = printf("___Printf imprime:%-1c\n", '0');
-	printf("ft = %d\nprintf = %d\n\n", n41, n42);
+	// ft_printf("Test '-'\n");
+	// n41 = ft_printf("ft_printf imprime:%-1c\n", '0');
+	// n42 = printf("___Printf imprime:%-1c\n", '0');
+	// printf("ft = %d\nprintf = %d\n\n", n41, n42);
 
 	// ft_printf("Test '+'\n");
 	// n43 = ft_printf("ft_printf imprime int: %+d\n", 420);
