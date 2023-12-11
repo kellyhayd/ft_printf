@@ -53,8 +53,9 @@ int	process_zeros(long int lnum, t_config *config, int mode)
 	int	count;
 
 	len = num_len(lnum, 10);
+	count = 0;
 	if (config->flags.zero && (config->width > len))
-		count = ft_putnchar('0', (config->width - len), mode);
+		count += ft_putnchar('0', (config->width - len), mode);
 	if (config->precision > len)
 		count += ft_putnchar('0', (config->precision - len), mode);
 	count += process_num(lnum, mode);
@@ -65,8 +66,9 @@ int	process_signals(long int lnum, t_config *config, int mode)
 {
 	int	size;
 
+	size = 0;
 	if (config->flags.plus && lnum >= 0)
-		size = ft_putnchar('+', 1, mode);
+		size += ft_putnchar('+', 1, mode);
 	if (config->flags.space && lnum >= 0)
 		size += ft_putnchar(' ', 1, mode);
 	if (lnum < 0)
@@ -83,8 +85,9 @@ int	define_num(int num, t_config *config)
 
 	lnum = (long int)num;
 	count = process_signals(lnum, config, COUNT_ONLY);
+	n = 0;
 	if (config->width > count && !config->flags.minus)
-		n = ft_putnchar(' ', (config->width - count), PRINT_ONLY);
+		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
 	n += process_signals(lnum, config, PRINT_ONLY);
 	if (config->width > count && config->flags.minus)
 		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);

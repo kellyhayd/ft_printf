@@ -28,17 +28,13 @@ int	ft_putnchar(char c, int rep, int mode)
 	int	n;
 	int	count;
 
+	if (mode == COUNT_ONLY)
+		return (rep);
 	count = rep;
 	n = 0;
-	while (rep > 0)
-	{
-		while (n == 0 && mode == PRINT_ONLY)
-			n = write(1, &c, 1);
-		if (mode == COUNT_ONLY)
-			n += 1;
-		rep--;
-	}
-	return (count);
+	while (n == 0 && count-- > 0)
+		n = write(1, &c, 1);
+	return (rep);
 }
 
 int	ft_putstr(char *s)

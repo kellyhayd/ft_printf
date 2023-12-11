@@ -27,27 +27,25 @@ int	print_hex(unsigned long long lnum, char *base)
 	return (n);
 }
 
-int	define_hex(unsigned long int num, char c, t_config *config)
+int	define_hex(unsigned long long lnum, char c, t_config *config)
 {
 	char				*base;
 	int					n;
 	int					len;
 	int					count;
-	unsigned long long	lnum;
 
 	if (c == 'x')
 		base = "0123456789abcdef";
 	else if (c == 'X')
 		base = "0123456789ABCDEF";
-	lnum = (unsigned long long)num;
 	n = 0;
-	len  = num_len(num, 16);
+	len  = num_len(lnum, 16);
 	if (config->precision > len)
 		count = config->precision;
 	else
 		count = len;
 	if (config->width > count && !config->flags.minus)
-		n = ft_putnchar(' ', (config->width - count), PRINT_ONLY);
+		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
 	if (config->precision > len)
 		n += ft_putnchar('0', (config->precision - len), PRINT_ONLY);
 	n += print_hex(lnum, base);

@@ -18,7 +18,7 @@ int	print_char(char c, t_config *config)
 
 	n = 0;
 	if (config->width > 1 && !config->flags.minus)
-			n = ft_putnchar(' ', (config->width - 1), PRINT_ONLY);
+		n += ft_putnchar(' ', (config->width - 1), PRINT_ONLY);
 	n += ft_putnchar(c, 1, PRINT_ONLY);
 	if (config->width > 1 && config->flags.minus)
 			n += ft_putnchar(' ', (config->width - 1), PRINT_ONLY);
@@ -44,11 +44,11 @@ int	print_str(char *str, t_config *config)
 	else
 		count = config->precision;
 	if (config->width >  count && !config->flags.minus)
-			n = ft_putnchar(' ', (config->width - count), PRINT_ONLY);
-	while (count-- && *str++)
+		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
+	while (count-- && str++)
 		n += ft_putnchar(*str, 1, PRINT_ONLY);
 	if (config->width > count && config->flags.minus)
-			n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
+		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
 	return (n);
 }
 

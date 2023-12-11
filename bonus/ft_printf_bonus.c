@@ -29,9 +29,12 @@ int	id_type_bonus(const char **str, va_list ap, t_config *config)
 	else if (**str == 'u')
 		n = define_undec(va_arg(ap, unsigned int));
 	else if (**str == 'x' || **str == 'X')
-		n = define_hex(va_arg(ap, unsigned long int), **str, config);
+		n = define_hex(va_arg(ap, unsigned int), **str, config);
 	else if (**str == '%')
 		n = ft_putnchar('%', 1, PRINT_ONLY);
+	else
+		return (0);
+	(*str)++;
 	return (n);
 }
 
@@ -87,12 +90,13 @@ int	ft_printf(const char *str, ...)
 		{
 			ft_putnchar(*str, 1, PRINT_ONLY);
 			n += 1;
+			str++;
 		}
 		if (*str == '%')
 		{
+			str++;
 			n += define_config(&str, args, &config);
 		}
-		str++;
 	}
 	va_end(args);
 	return (n);
