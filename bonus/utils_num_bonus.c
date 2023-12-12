@@ -14,12 +14,14 @@ int	parse_number(const char **str)
 	return (number);
 }
 
-int	num_len(unsigned long long num, unsigned int base)
+int	num_len(long long num, unsigned int base)
 {
 	int	len;
 
-	len = 1;
-	while (num >= base)
+	len = 0;
+	if (num == 0)
+		len  = 1;
+	while (num != 0)
 	{
 		len += 1;
 		num /= base;

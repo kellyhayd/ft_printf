@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:01:50 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/11 17:58:30 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:57:04 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	id_type_bonus(const char **str, va_list ap, t_config *config)
 	else if (**str == 'd' || **str == 'i')
 		n = define_num_bonus(va_arg(ap, int), config);
 	else if (**str == 'u')
-		n = define_undec_bonus(va_arg(ap, unsigned int));
+		n = define_undec_bonus(va_arg(ap, unsigned int), config);
 	else if (**str == 'x' || **str == 'X')
-		n = define_hex_bonus(va_arg(ap, unsigned int), **str, config);
+		n = define_hex_bonus(va_arg(ap, unsigned int), **str, config, 0);
 	else if (**str == '%')
 		n = ft_putnchar('%', 1, PRINT_ONLY);
 	else

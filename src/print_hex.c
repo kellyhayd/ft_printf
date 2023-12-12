@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:33:14 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/07 15:33:36 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:05:34 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	print_hex(unsigned long long lnum, char c)
 {
-	char		*base;
-	int			n;
+	char	*base;
+	int		n;
 
 	if (c == 'x')
 		base = "0123456789abcdef";
@@ -34,7 +34,7 @@ int	print_hex(unsigned long long lnum, char c)
 
 int	print_ptrhex(unsigned long long ptr)
 {
-	int					n;
+	int	n;
 
 	if (!ptr)
 	{

@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:02:05 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/11 18:11:02 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:57:25 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,79 +212,160 @@ int main(void)
 	// n2 = printf("___printf imprime: %-1s$ %-2s$ \n", "", "-");
 	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("Test 17\n");
-	n1 = ft_printf("ft_printf imprime: %-3s$ %-4s$ \n", " - ", "");
-	n2 = printf("___printf imprime: %-3s$ %-4s$ \n", " - ", "");
+	// ft_printf("Test 17\n");
+	// n1 = ft_printf("ft_printf imprime: %-3s$ %-4s$ \n", " - ", "");
+	// n2 = printf("___printf imprime: %-3s$ %-4s$ \n", " - ", "");
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// ft_printf("Test 18\n");
+	// n1 = ft_printf("ft_printf imprime: %-2s$ %-3s$ %-4s$ %-5s$ \n", " - ", "", "4", "");
+	// n2 = printf("___printf imprime: %-2s$ %-3s$ %-4s$ %-5s$ \n", " - ", "", "4", "");
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// ft_printf("Test 19\n");
+	// n1 = ft_printf("ft_printf imprime: %-3s$ %-3s$ %-4s$ %-5s$ %-3s$ \n", " - ", "", "4", "", "2 ");
+	// n2 = printf("___printf imprime: %-3s$ %-3s$ %-4s$ %-5s$ %-3s$ \n", " - ", "", "4", "", "2 ");
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%2p$\n", -1);
+	// n2 = printf("%2p$\n", -1);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-2p$\n", -1);
+	// n2 = printf("%-2p$\n", -1);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-2p$\n", 1);
+	// n2 = printf("%-2p$\n", 1);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-2p$\n", 15);
+	// n2 = printf("%-2p$\n", 15);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-3p$\n", 16);
+	// n2 = printf("%-3p$\n", 16);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-4p$\n", 17);
+	// n2 = printf("%-4p$\n", 17);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-1d$\n", 0);
+	// n2 = printf("%-1d$\n", 0);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-2d$\n", -1);
+	// n2 = printf("%-2d$\n", -1);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-3d$\n", 1);
+	// n2 = printf("%-3d$\n", 1);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-4d$\n", 9);
+	// n2 = printf("%-4d$\n", 9);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-1d$\n", 10);
+	// n2 = printf("%-1d$\n", 10);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-2d$\n", 11);
+	// n2 = printf("%-2d$\n", 11);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-3d$\n", 15);
+	// n2 = printf("%-3d$\n", 15);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-4d$\n", 16);
+	// n2 = printf("%-4d$\n", 16);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-5d$\n", 17);
+	// n2 = printf("%-5d$\n", 17);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-1d$\n", 99);
+	// n2 = printf("%-1d$\n", 99);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-9p %-10p$\n", -2147483647, 2147483647);
+	// n2 = printf("%-9p %-10p$\n", -2147483647, 2147483647);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	// n1 = ft_printf("%-11p %-12p$\n", -2147483647, 2147483647);
+	// n2 = printf("%-11p %-12p$\n", -2147483647, 2147483647);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+
+	n1 = ft_printf("%-13p %-14p$\n", 4294967295, -4294967295);
+	n2 = printf("%-13p %-14p$\n", 4294967295, -4294967295);
 	printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("Test 18\n");
-	n1 = ft_printf("ft_printf imprime: %-2s$ %-3s$ %-4s$ %-5s$ \n", " - ", "", "4", "");
-	n2 = printf("___printf imprime: %-2s$ %-3s$ %-4s$ %-5s$ \n", " - ", "", "4", "");
-	printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	// n1 = printf("%-1u$\n", 10);
+	// n2 = ft_printf("%-1u$\n", 10);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("Test 19\n");
-	n1 = ft_printf("ft_printf imprime: %-3s$ %-3s$ %-4s$ %-5s$ %-3s$ \n", " - ", "", "4", "", "2 ");
-	n2 = printf("___printf imprime: %-3s$ %-3s$ %-4s$ %-5s$ %-3s$ \n", " - ", "", "4", "", "2 ");
-	printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	// n1 = ft_printf("%-4u$\n", 16);
+	// n2 = printf("%-4u$\n", 16);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	n1 = ft_printf("%2p$", -1);
-	n2 = printf("%2p$", -1);
+	// n1 = ft_printf("%-5u$\n", 17);
+	// n2 = printf("%-5u$\n", 17);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	n1 = ft_printf("%-2p$", -1);
-	n2 = printf("%-2p$", -1);
+	// n1 = ft_printf("%-1u$\n", 99);
+	// n2 = printf("%-1u$\n", 99);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	n1 = ft_printf("%-2p$", 1);
-	n2 = printf("%-2p$", 1);
+	// n1 = ft_printf("%-1x$\n", 0);
+	// n2 = printf("%-1x$\n", 0);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	n1 = ft_printf("%-2p$", 15);
-	n2 = printf("%-2p$", 15);
+	// n1 = ft_printf("%02d$\n", -1);
+	// n2 = printf("%02d$\n", -1);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("%-3p$", 16);
-	printf("%-3p$", 16);
+	// n1 = ft_printf("%03d$\n", -11);
+	// n2 = printf("%03d$\n", -11);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("%-4p$", 17);
-	printf("%-4p$", 17);
+	// n1 = ft_printf("%04d$\n", -14);
+	// n2 = printf("%04d$\n", -14);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("%-1d$", 0);
-	printf("%-1d$", 0);
+	// n1 = ft_printf("%05d$\n", -15);
+	// n2 = printf("%05d$\n", -15);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("%-2d$", -1);
-	printf("%-2d$", -1);
+	// n1 = printf("%06d ", -16);
+	// n2 = ft_printf("%06d ", -16);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("%-3d$", 1);
-	printf("%-3d$", 1);
+	// n1 = printf("%-13u ", 4294967295);
+	// n2 = ft_printf("%-13u ", 4294967295);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("%-4d$", 9);
-	printf("%-4d$", 9);
+	// n1 = printf("%011d ", 2147483647);
+	// n2 = ft_printf("%011d ", 2147483647);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("%-1d$", 10);
-	printf("%-1d$", 10);
+	// n1 = printf("%-12u ", -2147483647);
+	// n2 = ft_printf("%-12u ", -2147483647);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("%-2d$", 11);
-	printf("%-2d$", 11);
+	// n1 = printf("%-14u ", 4294967295);
+	// n2 = ft_printf("%-14u ", 4294967295);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("%-3d$", 15);
-	printf("%-3d$", 15);
+	// n1 = printf("%-15u ", 9223372036854775807LL);
+	// n2 = ft_printf("%-15u ", 9223372036854775807LL);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	ft_printf("%-4d$", 16);
-	printf("%-4d$", 16);
-
-	ft_printf("%-5d$", 17);
-	printf("%-5d$", 17);
-
-	ft_printf("%-1d$", 99);
-	printf("%-1d$", 99);
-
-	ft_printf("%-9p %-10p$", LONG_MIN, LONG_MAX);
-	printf("%-9p %-10p$", LONG_MIN, LONG_MAX);
-
-	ft_printf("%-11p %-12p$", INT_MIN, INT_MAX);
-	printf("%-11p %-12p$", INT_MIN, INT_MAX);
-
-	ft_printf("%-13p %-14p$", ULONG_MAX, -ULONG_MAX);
-	printf("%-13p %-14p$", ULONG_MAX, -ULONG_MAX);
-
-
+	// n1 = printf("%-9u %-10u %-11u %-12u %-13u %-14u %-15u", 2147483647, -2147483647, 2147483647, -2147483647, 4294967295, 0, -42));
+	// n2 = ft_printf("%-9u %-10u %-11u %-12u %-13u %-14u %-15u", 2147483647, -2147483647, 2147483647, -2147483647, 4294967295, 0, -42));
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
 
 	// ft_printf("Test '+'\n");

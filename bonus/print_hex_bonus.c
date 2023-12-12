@@ -27,12 +27,12 @@ int	print_hex_bonus(unsigned long long lnum, char *base)
 	return (n);
 }
 
-int	define_hex_bonus(unsigned long long lnum, char c, t_config *config)
+int	define_hex_bonus(unsigned long long lnum, char c, t_config *config, int prefix)
 {
-	char				*base;
-	int					n;
-	int					len;
-	int					count;
+	char	*base;
+	int		n;
+	int		len;
+	int		count;
 
 	base = NULL;
 	if (c == 'x')
@@ -41,6 +41,8 @@ int	define_hex_bonus(unsigned long long lnum, char c, t_config *config)
 		base = "0123456789ABCDEF";
 	n = 0;
 	len  = num_len(lnum, 16);
+	if (prefix)
+		len += 2;
 	if (config->precision > len)
 		count = config->precision;
 	else
@@ -49,6 +51,13 @@ int	define_hex_bonus(unsigned long long lnum, char c, t_config *config)
 		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
 	if (config->precision > len)
 		n += ft_putnchar('0', (config->precision - len), PRINT_ONLY);
+	if (config->flags.hashtag)
+	{
+		if (c == 'x')
+			n += ft_putstr("0x");
+		else if (c == 'X')
+			n += ft_putstr("0X");
+	}
 	n += print_hex_bonus(lnum, base);
 	if (config->width > count && config->flags.minus)
 		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
@@ -67,7 +76,11 @@ int	define_ptrhex_bonus(void *ptr, t_config *config)
 		return (n);
 	}
 	num = (unsigned long int)ptr;
-	config->flags.hashtag = 1;
-	n += define_hex_bonus(num, 'x', config);
+	if (num > 0)
+		config->flags.hashtag = 1;
+	if (num == 0)
+		n = ft_putnchar('0', 1, PRINT_ONLY);
+	else
+		n += define_hex_bonus(num, 'x', config, 1);
 	return (n);
 }
