@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:02:05 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/12 16:57:25 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:17:50 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -323,25 +323,25 @@ int main(void)
 	// n2 = printf("%-1x$\n", 0);
 	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	// n1 = ft_printf("%02d$\n", -1);
-	// n2 = printf("%02d$\n", -1);
-	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	n1 = ft_printf("%02d$\n", -1);
+	n2 = printf("%02d$\n", -1);
+	printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	// n1 = ft_printf("%03d$\n", -11);
-	// n2 = printf("%03d$\n", -11);
-	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	n1 = ft_printf("%03d$\n", -11);
+	n2 = printf("%03d$\n", -11);
+	printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	// n1 = ft_printf("%04d$\n", -14);
-	// n2 = printf("%04d$\n", -14);
-	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	n1 = ft_printf("%04d$\n", -14);
+	n2 = printf("%04d$\n", -14);
+	printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	// n1 = ft_printf("%05d$\n", -15);
-	// n2 = printf("%05d$\n", -15);
-	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	n1 = ft_printf("%05d$\n", -15);
+	n2 = printf("%05d$\n", -15);
+	printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	// n1 = printf("%06d ", -16);
-	// n2 = ft_printf("%06d ", -16);
-	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	n1 = printf("%06d ", -16);
+	n2 = ft_printf("%06d ", -16);
+	printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
 	// n1 = printf("%-13u ", 4294967295);
 	// n2 = ft_printf("%-13u ", 4294967295);
@@ -363,8 +363,8 @@ int main(void)
 	// n2 = ft_printf("%-15u ", 9223372036854775807LL);
 	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	// n1 = printf("%-9u %-10u %-11u %-12u %-13u %-14u %-15u", 2147483647, -2147483647, 2147483647, -2147483647, 4294967295, 0, -42));
-	// n2 = ft_printf("%-9u %-10u %-11u %-12u %-13u %-14u %-15u", 2147483647, -2147483647, 2147483647, -2147483647, 4294967295, 0, -42));
+	// n1 = ft_printf("%-9u %-10u %-11u %-12u %-13u %-14u %-15u\n", 2147483647, -2147483647, 2147483647, -2147483647, 4294967295, 0, -42);
+	// n2 = printf("%-9u %-10u %-11u %-12u %-13u %-14u %-15u\n", 2147483647, -2147483647, 2147483647, -2147483647, 4294967295, 0, -42);
 	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
 

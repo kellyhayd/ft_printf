@@ -47,8 +47,9 @@ int	define_hex_bonus(unsigned long long lnum, char c, t_config *config, int pref
 		count = config->precision;
 	else
 		count = len;
-	if (config->width > count && !config->flags.minus)
-		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
+	n += prefix_padding(config, count);
+	if (config->flags.zero && (config->width > len))
+		n += ft_putnchar('0', (config->width - len), PRINT_ONLY);
 	if (config->precision > len)
 		n += ft_putnchar('0', (config->precision - len), PRINT_ONLY);
 	if (config->flags.hashtag)
@@ -59,8 +60,7 @@ int	define_hex_bonus(unsigned long long lnum, char c, t_config *config, int pref
 			n += ft_putstr("0X");
 	}
 	n += print_hex_bonus(lnum, base);
-	if (config->width > count && config->flags.minus)
-		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
+	n += suffix_padding(config, n);
 	return (n);
 }
 

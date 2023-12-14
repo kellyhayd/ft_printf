@@ -6,19 +6,17 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:07:09 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/12 16:30:54 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:14:36 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	process_num_bonus(long int lnum, int mode)
+int	process_num_bonus(unsigned long long lnum, t_config *config, int mode)
 {
 	int	n;
 
 	n = 0;
-	if (lnum < 0)
-		lnum *= -1;
 	if (lnum < 10)
 	{
 		if (mode == COUNT_ONLY)
@@ -28,68 +26,86 @@ int	process_num_bonus(long int lnum, int mode)
 	}
 	else if (lnum >= 10)
 	{
-		n += process_num_bonus(lnum / 10, mode);
-		n += process_num_bonus(lnum % 10, mode);
+		n += process_num_bonus(lnum / 10, config, mode);
+		n += process_num_bonus(lnum % 10, config, mode);
 	}
 	return (n);
 }
 
-int	process_zeros_bonus(long int lnum, t_config *config, int mode)
+int	process_zeros_bonus(long lnum, t_config *config, int mode)
 {
 	int	len;
 	int	count;
 
 	count = 0;
 	len = num_len(lnum, 10);
-	if (lnum < 0)
-	{
-		len += ft_putnchar('-', 1, mode);
-		count = 1;
-	}
 	if (config->flags.zero && (config->width > len))
 		count += ft_putnchar('0', (config->width - len), mode);
 	if (config->precision > len)
 		count += ft_putnchar('0', (config->precision - len), mode);
-	count += process_num_bonus(lnum, mode);
 	return (count);
 }
 
-int	process_signals_bonus(long int lnum, t_config *config, int mode)
+int	process_signals_bonus(long num, t_config *config, int mode)
 {
 	int	n;
 
 	n = 0;
-	if (config->flags.plus && lnum >= 0)
+	if (num < 0)
+		n += ft_putnchar('-', 1, mode);
+	if (config->flags.plus && num >= 0)
 		n += ft_putnchar('+', 1, mode);
-	if (config->flags.space && lnum >= 0)
+	if (config->flags.space && num >= 0)
 		n += ft_putnchar(' ', 1, mode);
-	n += process_zeros_bonus(lnum, config, mode);
+	n += process_zeros_bonus(num, config, mode);
 	return (n);
 }
 
 int	define_num_bonus(int num, t_config *config)
 {
-	int			count;
-	int			n;
-	long int	lnum;
-
-	lnum = (long int)num;
-	count = process_signals_bonus(lnum, config, COUNT_ONLY);
-	n = 0;
-	if (config->width > count && !config->flags.minus && !config->flags.zero)
-		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
-	n += process_signals_bonus(lnum, config, PRINT_ONLY);
-	if (config->width > count && config->flags.minus)
-		n += ft_putnchar(' ', (config->width - count), PRINT_ONLY);
-	return (n);
-}
-
-int	define_undec_bonus(unsigned int num, t_config *config)
-{
-	int				n;
-	unsigned long	lnum;
+	int		count;
+	int		n;
+	long	lnum;
 
 	lnum = num;
-	n = define_num_bonus(lnum, config);
+	count = process_signals_bonus(lnum, config, COUNT_ONLY);
+	count += process_num_bonus(lnum, config, COUNT_ONLY);
+	n = prefix_padding(config, count);
+	n += process_signals_bonus(lnum, config, PRINT_ONLY);
+	if (lnum < 0)
+		lnum *= -1;
+	n += process_num_bonus(lnum, config, PRINT_ONLY);
+	n += suffix_padding(config, count);
 	return (n);
 }
+
+int	process_uint(unsigned long long lnum, t_config *config, int mode)
+{
+	int	count;
+	int zeroes;
+	int	n;
+
+	count = process_num_bonus(lnum, config, COUNT_ONLY);
+	if (config->flags.zero && config->width > count)
+		zeroes = config->width - count;
+	else if (config->precision > count)
+		zeroes = config->precision - count;
+	else
+		zeroes = 0;
+	n = ft_putnchar('0', zeroes, mode);
+	n += process_num_bonus(lnum, config, mode);
+	return (n);
+}
+
+int	define_undec_bonus(unsigned long long lnum, t_config *config)
+{
+	int	n;
+	int	count;
+
+	count = process_uint(lnum, config, COUNT_ONLY);
+	n = prefix_padding(config, count);
+	n += process_uint(lnum, config, PRINT_ONLY);
+	n += suffix_padding(config, count);
+	return (n);
+}
+
