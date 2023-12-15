@@ -74,7 +74,7 @@ int	define_hex_bonus(unsigned long long lnum, char c, t_config *config)
 
 int	define_ptrhex_bonus(void *ptr, t_config *config)
 {
-	int				n;
+	int					n;
 	int					count;
 	unsigned long int	lnum;
 
