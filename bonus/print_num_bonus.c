@@ -38,7 +38,10 @@ int	process_zeros_bonus(unsigned long long lnum, t_config *config, int base, int
 	int	count;
 
 	count = 0;
-	len = num_len(lnum, base);
+	if (config->precision == 0 && lnum == 0)
+		len = 0;
+	else
+		len = num_len(lnum, base);
 	if (config->flags.zero && (config->width > len))
 		count += ft_putnchar('0', (config->width - len), mode);
 	if (config->precision > len)
@@ -71,8 +74,8 @@ int	process_signals_bonus(long num, t_config *config, int mode)
 
 int	define_num_bonus(long long num, t_config *config)
 {
-	int		count;
-	int		n;
+	int					count;
+	int					n;
 	unsigned long long	lnum;
 
 	if (num < 0)
@@ -80,29 +83,13 @@ int	define_num_bonus(long long num, t_config *config)
 	else
 		lnum = num;
 	count = process_signals_bonus(num, config, COUNT_ONLY);
-	count += process_num_bonus(lnum, COUNT_ONLY);
+	if (!(config->precision == 0 && lnum == 0))
+		count += process_num_bonus(lnum, COUNT_ONLY);
 	n = prefix_padding(config, count);
 	n += process_signals_bonus(num, config, PRINT_ONLY);
-	n += process_num_bonus(lnum, PRINT_ONLY);
+	if (!(config->precision == 0 && lnum == 0))
+		n += process_num_bonus(lnum, PRINT_ONLY);
 	n += suffix_padding(config, count);
-	return (n);
-}
-
-int	process_uint(unsigned long long lnum, t_config *config, int mode)
-{
-	int	count;
-	int zeroes;
-	int	n;
-
-	count = process_num_bonus(lnum, COUNT_ONLY);
-	if (config->flags.zero && config->width > count)
-		zeroes = config->width - count;
-	else if (config->precision > count)
-		zeroes = config->precision - count;
-	else
-		zeroes = 0;
-	n = ft_putnchar('0', zeroes, mode);
-	n += process_num_bonus(lnum, mode);
 	return (n);
 }
 
@@ -111,9 +98,13 @@ int	define_undec_bonus(unsigned long long lnum, t_config *config)
 	int	n;
 	int	count;
 
-	count = process_uint(lnum, config, COUNT_ONLY);
+	count = process_zeros_bonus(lnum, config, 10, COUNT_ONLY);
+	if (!(config->precision == 0 && lnum == 0))
+		count += process_num_bonus(lnum, COUNT_ONLY);
 	n = prefix_padding(config, count);
-	n += process_uint(lnum, config, PRINT_ONLY);
+	n += process_zeros_bonus(lnum, config, 10, PRINT_ONLY);
+	if (!(config->precision == 0 && lnum == 0))
+		n += process_num_bonus(lnum, PRINT_ONLY);
 	n += suffix_padding(config, count);
 	return (n);
 }

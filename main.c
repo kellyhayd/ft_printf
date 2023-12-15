@@ -17,6 +17,15 @@
 
 int main(void)
 {
+	int	n1, n2;
+
+	setbuf(stdout, NULL);
+	n1 = ft_printf("ft = %.0i$\t", 0);
+	ft_printf("return = %d\n", n1);
+	n2 = printf("pf = %.0i$\t", 0);
+	ft_printf("return = %d\n", n2);
+
+
 	//Test char
 	// char	c = 'k';
 	// int		n1;
@@ -112,7 +121,7 @@ int main(void)
 	// ft_printf("----------------------------------------------------------\n\n");
 
 	//Test int
-	int n1, n2;
+	// int n1, n2;
 
 	// ft_printf("Test '#'\n");
 	// n37 = ft_printf("ft_printf imprime int: %#x\n", -2147483648);
@@ -299,9 +308,9 @@ int main(void)
 	// n2 = printf("%-11p %-12p$\n", -2147483647, 2147483647);
 	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	n1 = ft_printf("%-13p %-14p$\n", 4294967295, -4294967295);
-	n2 = printf("%-13p %-14p$\n", 4294967295, -4294967295);
-	printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	// n1 = ft_printf("%-13p %-14p$\n", 4294967295, -4294967295);
+	// n2 = printf("%-13p %-14p$\n", 4294967295, -4294967295);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
 	// n1 = printf("%-1u$\n", 10);
 	// n2 = ft_printf("%-1u$\n", 10);
@@ -323,25 +332,25 @@ int main(void)
 	// n2 = printf("%-1x$\n", 0);
 	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	n1 = ft_printf("%02d$\n", -1);
-	n2 = printf("%02d$\n", -1);
-	printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	// n1 = ft_printf("%02d$\n", -1);
+	// n2 = printf("%02d$\n", -1);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	n1 = ft_printf("%03d$\n", -11);
-	n2 = printf("%03d$\n", -11);
-	printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	// n1 = ft_printf("%03d$\n", -11);
+	// n2 = printf("%03d$\n", -11);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	n1 = ft_printf("%04d$\n", -14);
-	n2 = printf("%04d$\n", -14);
-	printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	// n1 = ft_printf("%04d$\n", -14);
+	// n2 = printf("%04d$\n", -14);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	n1 = ft_printf("%05d$\n", -15);
-	n2 = printf("%05d$\n", -15);
-	printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	// n1 = ft_printf("%05d$\n", -15);
+	// n2 = printf("%05d$\n", -15);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
-	n1 = printf("%06d ", -16);
-	n2 = ft_printf("%06d ", -16);
-	printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	// n1 = printf("%06d ", -16);
+	// n2 = ft_printf("%06d ", -16);
+	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
 
 	// n1 = printf("%-13u ", 4294967295);
 	// n2 = ft_printf("%-13u ", 4294967295);

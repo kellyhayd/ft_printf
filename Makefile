@@ -35,6 +35,8 @@ $(NAME): $(OBJ)
 
 bonus: $(OBJ_BONUS)
 
+main: main.o $(OBJ_BONUS)
+
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
 
