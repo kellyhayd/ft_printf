@@ -62,10 +62,12 @@ int	define_hex_bonus(unsigned long long lnum, char c, t_config *config)
 	else if (c == 'X')
 		base = "0123456789ABCDEF";
 	count = process_hashtag_bonus(lnum, c, config, COUNT_ONLY);
-	count += process_hex_bonus(lnum, base, COUNT_ONLY);
+	if (!(config->precision == 0 && lnum == 0))
+		count += process_hex_bonus(lnum, base, COUNT_ONLY);
 	n = prefix_padding(config, count);
 	n += process_hashtag_bonus(lnum, c, config, PRINT_ONLY);
-	n += process_hex_bonus(lnum, base, PRINT_ONLY);
+	if (!(config->precision == 0 && lnum == 0))
+		n += process_hex_bonus(lnum, base, PRINT_ONLY);
 	n += suffix_padding(config, n);
 	return (n);
 }
@@ -73,20 +75,24 @@ int	define_hex_bonus(unsigned long long lnum, char c, t_config *config)
 int	define_ptrhex_bonus(void *ptr, t_config *config)
 {
 	int				n;
-	unsigned long int	num;
+	int					count;
+	unsigned long int	lnum;
 
 	n = 0;
+	lnum = (unsigned long int)ptr;
 	if (!ptr)
 	{
-		n = ft_putstr("(nil)");
+		count = 5;
+		n = prefix_padding(config, count);
+		n += ft_putstr("(nil)");
+		n += suffix_padding(config, n);
 		return (n);
 	}
-	num = (unsigned long int)ptr;
-	if (num > 0)
+	if (lnum > 0)
 		config->flags.hashtag = 1;
-	if (num == 0)
+	if (lnum == 0)
 		n = ft_putnchar('0', 1, PRINT_ONLY);
 	else
-		n += define_hex_bonus(num, 'x', config);
+		n += define_hex_bonus(lnum, 'x', config);
 	return (n);
 }

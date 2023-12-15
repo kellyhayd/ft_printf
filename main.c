@@ -20,9 +20,9 @@ int main(void)
 	int	n1, n2;
 
 	setbuf(stdout, NULL);
-	n1 = ft_printf("ft = %.0i$\t", 0);
+	n1 = ft_printf("ft = %15p$\t", NULL);
 	ft_printf("return = %d\n", n1);
-	n2 = printf("pf = %.0i$\t", 0);
+	n2 = printf("pf = %15p$\t", NULL);
 	ft_printf("return = %d\n", n2);
 
 
