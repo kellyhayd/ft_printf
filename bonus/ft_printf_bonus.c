@@ -29,7 +29,7 @@ int	id_type_bonus(const char **str, va_list ap, t_config *config)
 	else if (**str == 'u')
 		n = define_undec_bonus(va_arg(ap, unsigned int), config);
 	else if (**str == 'x' || **str == 'X')
-		n = define_hex_bonus(va_arg(ap, unsigned int), **str, config, 0);
+		n = define_hex_bonus(va_arg(ap, unsigned int), **str, config);
 	else if (**str == '%')
 		n = ft_putnchar('%', 1, PRINT_ONLY);
 	else

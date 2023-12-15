@@ -34,9 +34,9 @@ int	print_str_bonus(char *str, t_config *config)
 
 	if (!str)
 	{
-		if (config->precision < 6)
-			config->precision = -1;
-		print_str_bonus("(null)", config);
+		if (config->precision >= 0 && config->precision < 6)
+			config->precision = 0;
+		return (print_str_bonus("(null)", config));
 	}
 	n = 0;
 	len = ft_strlen(str);
