@@ -6,41 +6,30 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:01:54 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/07 14:26:21 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:13:17 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-/*
- * @brief Prints c to stdout.
- *
- * When write is successful it can transfer fewer bytes
- * due to partial writes. Therefore, we need to keep
- * trying until either it fails with a negative value
- * or it prints the byte we asked it to.
- *
- * @param char c
- * @param fd file descriptor
- */
-int	ft_putchar_fd(char c, int fd)
+int	ft_putchar(char c)
 {
 	int	n;
 
 	n = 0;
 	while (n == 0)
-		n = write(fd, &c, 1);
+		n = write(1, &c, 1);
 	return (n);
 }
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_putstr(char *s)
 {
 	int	n;
 
 	n = 0;
 	while (s[n])
 	{
-		ft_putchar_fd(s[n], fd);
+		ft_putchar(s[n]);
 		n++;
 	}
 	return (n);

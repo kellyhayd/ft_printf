@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:01:50 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/14 16:04:41 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:42:38 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void	define_flags_bonus(const char **str, t_config *config)
 int	define_config_bonus(const char **str, va_list ap, t_config *config)
 {
 	define_flags_bonus(str, config);
-	config->uint = 0;
 	config->width = parse_number(str);
 	if (**str == '.')
 	{
@@ -76,7 +75,7 @@ int	define_config_bonus(const char **str, va_list ap, t_config *config)
 		config->precision = parse_number(str);
 	}
 	else
-		config->precision = - 1;
+		config->precision = -1;
 	if (config->precision >= 0)
 		config->flags.zero = 0;
 	return (id_type_bonus(str, ap, config));

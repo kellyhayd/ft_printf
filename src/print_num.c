@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:07:09 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/07 15:31:39 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:13:56 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	print_dec_int(int num)
 	n = 0;
 	if (lnb < 0)
 	{
-		n += ft_putchar_fd('-', 1);
+		n += ft_putchar('-');
 		lnb *= -1;
 	}
 	if (lnb < 10)
-		n += ft_putchar_fd(lnb + '0', 1);
+		n += ft_putchar(lnb + '0');
 	else if (lnb >= 10)
 	{
 		n += print_dec_int(lnb / 10);
@@ -42,7 +42,7 @@ int	print_undec(unsigned int num)
 	lnum = num;
 	n = 0;
 	if (lnum < 10)
-		n += ft_putchar_fd(lnum + '0', 1);
+		n += ft_putchar(lnum + '0');
 	else if (lnum >= 10)
 	{
 		n += print_undec(lnum / 10);

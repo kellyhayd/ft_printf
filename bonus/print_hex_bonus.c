@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex_bonus_bonus.c                                  :+:      :+:    :+:   */
+/*   print_hex_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:33:14 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/11 12:54:31 by krocha-h         ###   ########.fr       */
+/*   Created: 2023/12/15 15:54:07 by krocha-h          #+#    #+#             */
+/*   Updated: 2023/12/19 14:13:26 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	process_hex_bonus(unsigned long long lnum, char *base, int mode)
+static int	process_hex_bonus(t_ull lnum, char *base, int mode)
 {
 	int	n;
 
@@ -32,9 +32,9 @@ int	process_hex_bonus(unsigned long long lnum, char *base, int mode)
 	return (n);
 }
 
-int	process_hashtag_bonus(unsigned long long lnum, char c, t_config *config, int mode)
+static int	process_hash_bonus(t_ull lnum, char c, t_config *config, int mode)
 {
-	int n;
+	int	n;
 
 	n = 0;
 	if (config->flags.hashtag && lnum != 0)
@@ -50,7 +50,7 @@ int	process_hashtag_bonus(unsigned long long lnum, char c, t_config *config, int
 	return (n);
 }
 
-int	define_hex_bonus(unsigned long long lnum, char c, t_config *config)
+int	define_hex_bonus(t_ull lnum, char c, t_config *config)
 {
 	char	*base;
 	int		n;
@@ -61,11 +61,11 @@ int	define_hex_bonus(unsigned long long lnum, char c, t_config *config)
 		base = "0123456789abcdef";
 	else if (c == 'X')
 		base = "0123456789ABCDEF";
-	count = process_hashtag_bonus(lnum, c, config, COUNT_ONLY);
+	count = process_hash_bonus(lnum, c, config, COUNT_ONLY);
 	if (!(config->precision == 0 && lnum == 0))
 		count += process_hex_bonus(lnum, base, COUNT_ONLY);
 	n = prefix_padding(config, count);
-	n += process_hashtag_bonus(lnum, c, config, PRINT_ONLY);
+	n += process_hash_bonus(lnum, c, config, PRINT_ONLY);
 	if (!(config->precision == 0 && lnum == 0))
 		n += process_hex_bonus(lnum, base, PRINT_ONLY);
 	n += suffix_padding(config, n);

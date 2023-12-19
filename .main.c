@@ -6,7 +6,7 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:02:05 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/14 20:17:50 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:59:10 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,7 +238,7 @@ int main(void)
 
 	// n1 = ft_printf("%2p$\n", -1);
 	// n2 = printf("%2p$\n", -1);
-	// printf("ft = %d\nprintf = %d\n\n", n1, n2);
+	// printf("ft = %d\nprintf/*
 
 	// n1 = ft_printf("%-2p$\n", -1);
 	// n2 = printf("%-2p$\n", -1);

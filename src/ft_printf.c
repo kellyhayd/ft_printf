@@ -6,12 +6,11 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:01:50 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/07 14:50:57 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:13:31 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-#include <stdarg.h>
 
 int	id_type(char c, va_list ap)
 {
@@ -31,7 +30,7 @@ int	id_type(char c, va_list ap)
 	if (c == 'x' || c == 'X')
 		n = print_hex(va_arg(ap, unsigned int), c);
 	if (c == '%')
-		n = ft_putchar_fd('%', 1);
+		n = ft_putchar('%');
 	return (n);
 }
 
@@ -49,7 +48,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] != '%')
 		{
-			ft_putchar_fd(str[i], 1);
+			ft_putchar(str[i]);
 			n += 1;
 		}
 		if (str[i] == '%')

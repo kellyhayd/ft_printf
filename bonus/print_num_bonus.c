@@ -6,13 +6,13 @@
 /*   By: krocha-h <krocha-h@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 14:07:09 by krocha-h          #+#    #+#             */
-/*   Updated: 2023/12/14 20:14:36 by krocha-h         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:12:40 by krocha-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-int	process_num_bonus(unsigned long long lnum, int mode)
+int	process_num_bonus(t_ull lnum, int mode)
 {
 	int	n;
 
@@ -32,7 +32,7 @@ int	process_num_bonus(unsigned long long lnum, int mode)
 	return (n);
 }
 
-int	process_zeros_bonus(unsigned long long lnum, t_config *config, int base, int mode)
+int	process_zeros_bonus(t_ull lnum, t_config *config, int base, int mode)
 {
 	int	len;
 	int	count;
@@ -49,11 +49,11 @@ int	process_zeros_bonus(unsigned long long lnum, t_config *config, int base, int
 	return (count);
 }
 
-int	process_signals_bonus(long num, t_config *config, int mode)
+static int	process_signals_bonus(long num, t_config *config, int mode)
 {
-	int					n;
-	t_config			override;
-	unsigned long long	lnum;
+	int			n;
+	t_config	override;
+	t_ull		lnum;
 
 	n = 0;
 	if (num < 0)
@@ -74,9 +74,9 @@ int	process_signals_bonus(long num, t_config *config, int mode)
 
 int	define_num_bonus(long long num, t_config *config)
 {
-	int					count;
-	int					n;
-	unsigned long long	lnum;
+	int		count;
+	int		n;
+	t_ull	lnum;
 
 	if (num < 0)
 		lnum = -num;
@@ -93,7 +93,7 @@ int	define_num_bonus(long long num, t_config *config)
 	return (n);
 }
 
-int	define_undec_bonus(unsigned long long lnum, t_config *config)
+int	define_undec_bonus(t_ull lnum, t_config *config)
 {
 	int	n;
 	int	count;
@@ -108,4 +108,3 @@ int	define_undec_bonus(unsigned long long lnum, t_config *config)
 	n += suffix_padding(config, count);
 	return (n);
 }
-
