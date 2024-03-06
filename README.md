@@ -4,8 +4,14 @@
 <img alt="Static Badge" src="https://img.shields.io/badge/42-S%C3%A3o_Paulo-orange"> <img alt="Static Badge" src="https://img.shields.io/badge/language-c-green">  <img alt="Static Badge" src="https://img.shields.io/badge/submitted_in-dez%2F23-orange">
 </p>
 
-<h2> ✏ About </h2>
 >This project is about recoding the printf() function from libc.
+
+<h2> ✏ About </h2>
+
+```
+A recreation of the printf() function from libc, handling various conversion specifiers and flags,
+ensuring smooth display management and error handling.
+```
 
 <h2> ⚙ Requirements </h2>
 
