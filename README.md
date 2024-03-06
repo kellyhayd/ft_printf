@@ -1,6 +1,10 @@
 <h1 align="center"> 📝 ft_printf </h1>
 
 <p align="center">
+<img src="https://github.com/kellyhayd/ft_printf/assets/69431689/77fb57ef-ab8f-4f5c-aed4-f29fb6f8462a">
+</p>
+
+<p align="center">
 <img alt="Static Badge" src="https://img.shields.io/badge/42-S%C3%A3o_Paulo-orange"> <img alt="Static Badge" src="https://img.shields.io/badge/language-c-green">  <img alt="Static Badge" src="https://img.shields.io/badge/submitted_in-dez%2F23-orange">
 </p>
 
